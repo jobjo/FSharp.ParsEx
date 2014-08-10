@@ -10,7 +10,7 @@ module Dates =
 
     let private toString cs = String(Array.ofList cs)
 
-    /// Parses an integer by taking as many as 
+    /// Parses an integer by reading as many digits as possible.
     let integer = 
         takeWhile (fun c -> Char.IsDigit c) P.any
         |> filter (List.isEmpty >> not)
@@ -19,7 +19,7 @@ module Dates =
     /// Only parses integers in the range of 1900 to 2100 
     let year = filter (fun n -> n >= 1900 && n <= 2100) integer
 
-    /// Only pareses integers between 1 and 12 or names of months
+    /// Matches integers from 1 to 12 or names of months
     let month =
         let name = 
             manyOne P.any
@@ -33,13 +33,11 @@ module Dates =
             |> maybeFail
         name <|> (filter (fun n -> n >= 1 && n <= 12) integer)
 
-    /// Only parses integers between 1 and 31
+    /// Matches integers between 1 and 31
     let day = filter (fun n -> n >= 1 && n <= 31) integer
 
     /// Dash is either a '/' or a '\' or a '-'.
     let dash = P.tokens "/" <|> P.tokens "\\" <|> P.tokens "-" <|> P.tokens " "
-
-    type Date = int * int * int
 
     /// Parses a date or a partial date.
     let date =
@@ -95,7 +93,8 @@ module Dates =
     /// Matches either 'to' or any dash.
     let toOrDash = many (P.tokens "to" <|> dash)
 
-    /// Parsers a date range
+    /// Matches a date range.
+    /// Ex: from january 2010 to 2012-12-31
     let dateRange =
         parse {
             do! spaces >>. maybe from >>. spaces
