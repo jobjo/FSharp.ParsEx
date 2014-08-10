@@ -31,12 +31,10 @@ module Properties =
     let private cap n = Seq.truncate n >> Seq.toList
 
 
-    /// Test that fail always fail
     [<Property (Arbitrary = [| typeof<CustomGenerators> |])>]
     let ``Fail does not match any input`` (ts: list<int>) =
         results fail<int,unit> ts == []
 
-    /// Test that empty only succeeds on empty list
     [<Property (Arbitrary = [| typeof<CustomGenerators> |])>]
     let ``Empty parser matches empty list`` (ts: list<int>) =
         match ts with
@@ -44,7 +42,6 @@ module Properties =
         | _     -> results P.empty ts == []
 
 
-    /// Test that empty only succeeds on empty list
     [<Property (Arbitrary = [| typeof<CustomGenerators> |])>]
     let ``Delay preserves semantic`` (ts: list<int>) =
         [
@@ -56,7 +53,6 @@ module Properties =
             results p ts == results (delay (fun _ -> p)) ts 
         )
 
-    /// Test that empty only succeeds on empty list
     [<Property (Arbitrary = [| typeof<CustomGenerators> |])>]
     let ``First result of many any is the full list`` (ts: list<int>) =
         let ts = cap 10 ts
@@ -67,7 +63,6 @@ module Properties =
             List.head (List.rev rs) == []
         ]
 
-    /// Test that empty only succeeds on empty list
     [<Property (Arbitrary = [| typeof<CustomGenerators> |])>]
     let ``Test that prune defaults to first match`` (ts: list<int>) =
         let ts = cap 10 ts
@@ -78,7 +73,6 @@ module Properties =
             List.head rs == ts
         ]
 
-    /// Test that empty only succeeds on empty list
     [<Property (Arbitrary = [| typeof<CustomGenerators> |])>]
     let ``TakeWhile is equivalent to Seq takeWhile`` (ts: list<int>) =
         let isEven n = n % 2 = 0
@@ -86,7 +80,6 @@ module Properties =
         let rs2 = List.concat <| results (takeWhile isEven P.any) ts
         rs1 == rs2
 
-    /// Test that empty only succeeds on empty list
     [<Property (Arbitrary = [| typeof<CustomGenerators> |])>]
     let ``Monadic join properties`` (ts: list<int>) =
         [
@@ -118,7 +111,6 @@ module Properties =
             l1 && l2 && l3
         )
 
-    /// Test that empty only succeeds on empty list
     [<Property (Arbitrary = [| typeof<CustomGenerators> |])>]
     let ``Test that filter is effectful`` (ts: list<int>) =
         let ts = ts |> Seq.truncate 10 |> List.ofSeq
@@ -129,7 +121,6 @@ module Properties =
             results (many parseEven) ts |> List.concat |> List.forall isEven
         ]
 
-    /// Test that empty only succeeds on empty list
     [<Property (Arbitrary = [| typeof<CustomGenerators> |])>]
     let ``Maybe and maybeFail are inverse`` (ts: list<int>) =
         let p = filter ((>) 0) P.any
