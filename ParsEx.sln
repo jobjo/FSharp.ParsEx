@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30324.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ParsEx", "src\ParsEx.fsproj", "{4ECF068B-4BC9-4D5B-A9FA-8AE4C5C6BC52}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ParsEx.Tests", "tests\ParsEx.Tests.fsproj", "{348EC0C4-7051-478F-A7C0-550FA1A4C3CA}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ParsEx.Examples", "examples\ParsEx.Examples.fsproj", "{EFB3D507-C4E5-4163-AE6C-26C3BF91BFE6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4ECF068B-4BC9-4D5B-A9FA-8AE4C5C6BC52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ECF068B-4BC9-4D5B-A9FA-8AE4C5C6BC52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ECF068B-4BC9-4D5B-A9FA-8AE4C5C6BC52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ECF068B-4BC9-4D5B-A9FA-8AE4C5C6BC52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{348EC0C4-7051-478F-A7C0-550FA1A4C3CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{348EC0C4-7051-478F-A7C0-550FA1A4C3CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{348EC0C4-7051-478F-A7C0-550FA1A4C3CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{348EC0C4-7051-478F-A7C0-550FA1A4C3CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFB3D507-C4E5-4163-AE6C-26C3BF91BFE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFB3D507-C4E5-4163-AE6C-26C3BF91BFE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFB3D507-C4E5-4163-AE6C-26C3BF91BFE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFB3D507-C4E5-4163-AE6C-26C3BF91BFE6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
