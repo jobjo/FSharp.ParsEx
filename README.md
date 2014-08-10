@@ -3,6 +3,7 @@ ParsEx - An Exhaustive parsing library for F#
 ParsEx is a top-down, backtracking, parser combinator library for F#. It's similar to Parsec (Haskell) and FParsec (FSharp).
 
 There are two major differences compared to FParsec:
+
     1. ParsEx can operate on input sequences of arbitrary type, while FParsec only supports text-based input.
     2. By default ParsEx parsers backtracks up to an arbitrary level.
     3. ParsEx parsers can find all matching rules, not only the first one.
